@@ -23,6 +23,11 @@ io.on('connection', (socket) => {
     io.emit('togglePlayback', isPlaying);
   });
 
+  socket.on("updateCurrentTrackInfo", (trackInfo) => {
+    console.log(`updateCurrentTrackInfo ${trackInfo}`);
+    io.emit("currentTrackInfoUpdated", trackInfo);
+  });
+
   // Gérer la déconnexion
   socket.on('disconnect', () => {
     console.log('Déconnexion:', socket.id);
