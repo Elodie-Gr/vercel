@@ -51,16 +51,7 @@ exports.getAllArtists = async (req, res) => {
 // GET: Récupérer un son par son ID
 exports.getArtistById = async (req, res) => {
   try {
-    const artist = await Artist.findById(req.params.id)
-      .populate({
-        path: 'albums',
-        select: 'title',
-      })
-      .populate({
-        path: 'songs',
-        select: 'title',
-      });
-
+    const artist = await Artist.findById(req.params.id).populate('albums').populate('songs');
     res.json(artist);
   } catch (error) {
     console.error('Error retrieving artist by ID:', error);
