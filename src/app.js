@@ -33,7 +33,7 @@ mongoose
   const allowedOrigin =
   process.env.NODE_ENV === 'prod'
     ? 'https://spotify-reactjs-seven.vercel.app' // Update with your production URL
-    : 'http://localhost:3000';
+    : 'https://spotify-reactjs-seven.vercel.app';
 
 // Use CORS middleware
 const corsOptions = {
